@@ -1,7 +1,5 @@
 #include "Oggetto.hpp"
 
-Oggetto::Oggetto(std::string n, std::string c, int p, int q) : nome(n), categoria(c), prezzo(p), quantita(q) {}
-
 
 const std::string &Oggetto::getNome(){
     return nome;
@@ -41,10 +39,7 @@ void Oggetto::setQuantita(const int &q){
 
 
 void Oggetto::printOggetto(){
-    std::cout << "\nNome: " << nome << std::endl;
-    std::cout << "\nCategoria: " << categoria << std::endl;
-    std::cout << "\nPrezzo: " << prezzo << std::endl;
-    std::cout << "\nQuantita: " << quantita << std::endl;
+    std::cout << "  [Nome]: " << nome << "  [Categoria]: " << categoria << "  [Prezzo]: " << prezzo << " euro  [Quantita]: " << quantita << std::endl;
 }
 
 
