@@ -1,4 +1,5 @@
 #include "ListaSpesa.hpp"
+#include "Utente.hpp"
 
 
 
@@ -46,12 +47,20 @@ int main(){
     listaRegali.printLista();
     std::cout << "\n" << std::endl;
 
+    // Creazione di un utente
+    Utente u1("Mario Rossi");
+    Utente u2("Alice Verdi");
 
+    // Aggiunta dell'utente come osservatore delle liste
+    listaSettimanale.AddObserver(&u1);
+    listaRegali.AddObserver(&u2);
+    listaRegali.AddObserver(&u1);
 
+    // Aggiunta di un oggetto alla lista settimanale
+    listaSettimanale.addOggetto(o9);
 
-
-
-
+    // Rimozione di un oggetto alla lista regali
+    listaRegali.removeOggetto(o0);
 
     return 0;
 }

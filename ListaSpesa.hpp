@@ -3,9 +3,10 @@
 #include <iostream>
 #include <string>
 #include <list>
+#include "Subject.hpp"
 #include "Oggetto.hpp"
 
-class ListaSpesa{
+class ListaSpesa : public Subject{
 
     public:
     ListaSpesa(std::string nl) : nomeLista(nl) {}
@@ -14,15 +15,22 @@ class ListaSpesa{
     const std::string &getNomeLista();
     void setNomeLista(const std::string &nl);
 
+    void AddObserver(Observer *o) override;
+    void RemoveObserver(Observer *o) override;   
+    void Notify() override;
+
     void addOggetto(Oggetto &o);
     void removeOggetto(Oggetto &o);
     void printLista();
+
+    
 
 
     private:
 
     std::string nomeLista;
     std::list<Oggetto> lista;
+    std::list<Observer*> observers;
 
 };
 
