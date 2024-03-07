@@ -6,6 +6,7 @@
 #include "Subject.hpp"
 #include "Oggetto.hpp"
 
+
 class ListaSpesa : public Subject{
 
     public:
@@ -31,6 +32,7 @@ class ListaSpesa : public Subject{
     std::string nomeLista;
     std::list<Oggetto> lista;
     std::list<Observer*> observers;
+   
 
 };
 
