@@ -1,5 +1,13 @@
 #include "ListaSpesa.hpp"
 
+const std::string &ListaSpesa::getNomeLista(){
+    return nomeLista;
+}
+
+void ListaSpesa::setNomeLista(const std::string &nl){
+    nomeLista = nl;
+}
+
 void ListaSpesa::AddObserver(Observer *o){
     observers.push_back(o);
 }

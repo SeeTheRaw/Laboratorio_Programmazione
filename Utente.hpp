@@ -12,11 +12,11 @@ class Utente : public Observer{
 
     Utente(std::string nu, ListaSpesa* lista ) : nomeUtente(nu), s(lista){
         attach();
-        std::cout << "[UTENTE] ==> " << nomeUtente << " Ha iniziato a gestire una nuova lista!!\n" << std::endl;
+        std::cout << "[UTENTE] ==> " << nomeUtente << " Ha iniziato a gestire la [LISTA] ==> " << lista->getNomeLista() << "\n" << std::endl;
     }
     ~Utente() {
         detach();
-        std::cout << "[UTENTE] ==> " << nomeUtente << " Ha smesso di gestire una lista!!\n" << std::endl;
+        std::cout << "[UTENTE] ==> " << nomeUtente << " Ha smesso di gestire la lista \n" << std::endl;
     }
 
 

@@ -37,30 +37,21 @@ int main(){
     listaSettimanale.printLista();
     std::cout << "\n\n" << std::endl;
     listaRegali.printLista();
-    std::cout << "\n" << std::endl;
+    std::cout << "\n\n" << std::endl;
 
-    // Rimozione dei quaderni dalla lista dei regali
-    listaRegali.removeOggetto(o7);
-
-    //stampo di nuovo la lista regali
-    std::cout << "lista regali dopo la rimozione dei quaderni:\n" << std::endl;
-    listaRegali.printLista();
-    std::cout << "\n" << std::endl;
 
     // Creazione di un utente
-    Utente u1("Mario Rossi");
-    Utente u2("Alice Verdi");
+    Utente u1("Mario Rossi", &listaSettimanale);
+    Utente u2("Alice Verdi", &listaRegali);
 
-    // Aggiunta dell'utente come osservatore delle liste
-    listaSettimanale.AddObserver(&u1);
-    listaRegali.AddObserver(&u2);
-    listaRegali.AddObserver(&u1);
+    std::cout << "\n" << std::endl;
 
-    // Aggiunta di un oggetto alla lista settimanale
+    // Aggiunta di oggetti alle liste
     listaSettimanale.addOggetto(o9);
+    listaRegali.removeOggetto(o10);
 
-    // Rimozione di un oggetto alla lista regali
-    listaRegali.removeOggetto(o0);
+    Utente u3("Luca Bianchi", &listaSettimanale);
+    listaSettimanale.addOggetto(o8);
 
     return 0;
 }
