@@ -24,6 +24,10 @@ void ListaSpesa::Notify(){
 
 
 void ListaSpesa::addOggetto(Oggetto &o){
+    if (o.getQuantita() <= 0) {
+        std::cerr << "Errore: impossibile aggiungere un oggetto con quantita' pari a zero o negativa." << std::endl;
+        return;
+    }
     lista.push_back(o);
     Notify();
 }
@@ -38,4 +42,22 @@ void ListaSpesa::printLista(){
     for (auto it = lista.begin(); it != lista.end(); it++){
         it->printOggetto();
     }
+}
+
+void ListaSpesa::searchPrint(const std::string& categoria) {
+    std::cout << "\n[ Oggetti nella categoria: " << categoria << " ] " << std::endl;
+    for ( auto& oggetto : lista) {
+        if (oggetto.getCategoria() == categoria) {
+            oggetto.printOggetto();
+        }
+    }
+}
+
+Oggetto* ListaSpesa::searchOggetto(const std::string& nome) {
+    for (auto& oggetto : lista) {
+        if (oggetto.getNome() == nome) {
+            return &oggetto;
+        }
+    }
+    return nullptr;
 }

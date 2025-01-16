@@ -23,6 +23,9 @@ public:
     void removeOggetto(Oggetto &o);
     void printLista();
 
+    Oggetto* searchOggetto(const std::string& nome);
+    void searchPrint(const std::string& categoria);
+
 
 
 
