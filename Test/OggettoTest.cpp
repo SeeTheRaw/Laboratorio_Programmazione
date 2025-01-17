@@ -11,9 +11,9 @@ TEST(OggettoTest, OperatoreEqual){
 }
 
 TEST(OggettoTest, PrintOggetto){
-    Oggetto obj("Pane", "Alimentari", 1, 2);
+    Oggetto obj("Pane", "Alimentari", 1, 1);
     testing::internal::CaptureStdout();
     obj.printOggetto();
     std::string output = testing::internal::GetCapturedStdout();
-    EXPECT_EQ(output, "  [Nome]: Pane  [Categoria]: Alimentari  [Prezzo]: 1 euro  [Quantita]: 2\n");
+    EXPECT_EQ(output, "  [Nome]: Pane  [Categoria]: Alimentari  [Quantita]: 1  [Acquistato]: Si\n");
 }
