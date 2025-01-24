@@ -18,6 +18,8 @@ TEST(ListaSpesaTest, AddAndRemoveOggetto){
     Oggetto o1("Mela", "Frutta", 1, 1);
     Oggetto o2("Pane", "Panificio", 2, 0);
 
+    EXPECT_THROW(Oggetto o3("Latte", "Latticini", -1, 0), std::invalid_argument);
+
     lista.addOggetto(o1);
     lista.addOggetto(o2);
 
