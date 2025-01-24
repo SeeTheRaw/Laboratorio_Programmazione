@@ -39,6 +39,7 @@ int main(){
     //stampo solo oggetti di una stessa categoria
     listaSettimanale.searchPrint("Alimentari");
     std::cout << "\n\n" << std::endl;
+    std::cout << listaSettimanale.countOggettiDaAcquistare() << "\n\n";
 
     listaRegali.printLista();
     std::cout << "\n\n" << std::endl;

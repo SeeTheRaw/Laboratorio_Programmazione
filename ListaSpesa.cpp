@@ -44,20 +44,31 @@ void ListaSpesa::printLista(){
     }
 }
 
-void ListaSpesa::searchPrint(const std::string& categoria) {
+void ListaSpesa::searchPrint(const std::string& categoria){
     std::cout << "\n[ Oggetti nella categoria: " << categoria << " ] " << std::endl;
-    for ( auto& oggetto : lista) {
-        if (oggetto.getCategoria() == categoria) {
+    for ( auto& oggetto : lista){
+        if (oggetto.getCategoria() == categoria){
             oggetto.printOggetto();
         }
     }
 }
 
-Oggetto* ListaSpesa::searchOggetto(const std::string& nome) {
-    for (auto& oggetto : lista) {
-        if (oggetto.getNome() == nome) {
+Oggetto* ListaSpesa::searchOggetto(const std::string& nome){
+    for (auto& oggetto : lista){
+        if (oggetto.getNome() == nome){
             return &oggetto;
         }
     }
+    std::cout << "L'oggetto cercato NON si trova nella lista" << std::endl;
     return nullptr;
+}
+
+int ListaSpesa::countOggettiDaAcquistare() const{
+    int count = 0;
+    for (const auto& oggetto : lista){
+        if (!oggetto.isAcquistato()){
+            count++;
+        }
+    }
+    return count;
 }

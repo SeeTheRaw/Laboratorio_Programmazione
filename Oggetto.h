@@ -8,8 +8,8 @@ class Oggetto{
 public:
 
     Oggetto(std::string n, std::string c, int q, bool a) : nome(n), categoria(c), quantita(q), acquistato(a) {
-        if (q >= 99) {
-            throw std::invalid_argument("La quantita' è troppo elevata!");
+        if (q < 0) {
+            throw std::invalid_argument("La quantita' non può essere negativa");
         }
     }
     ~Oggetto() {}
@@ -25,18 +25,21 @@ public:
     void setNome(const std::string& n) {
         nome = n;
     }
+
     std::string getCategoria() const {
         return categoria;
     }
     void setCategoria(const std::string& c) {
         categoria = c;
     }
+
     int getQuantita() const {
         return quantita;
     }
     void setQuantita(int q) {
         quantita = q;
     }
+
     void setAcquistato(bool stato) {
         acquistato = stato;
     }
@@ -45,16 +48,23 @@ public:
     }
 
 
+    std::string Oggetto_String() const {
+        return "  [Nome]: " + nome +
+               "  [Categoria]: " + categoria +
+               "  [Quantita]: " + std::to_string(quantita) +
+               "  [Acquistato]: " + (acquistato ? "Si" : "No");
+    }
+
     void printOggetto(){
-        std::cout << "  [Nome]: " << nome << "  [Categoria]: " << categoria << "  [Quantita]: " << quantita << "  [Acquistato]: " << (acquistato ? "Si" : "No") << std::endl;
+        std::cout << Oggetto_String() << std::endl;
     }
 
 private:
 
     std::string nome;
     std::string categoria;
-    int quantita;
-    bool acquistato;
+    int quantita = 0;
+    bool acquistato = false;
 
 };
 

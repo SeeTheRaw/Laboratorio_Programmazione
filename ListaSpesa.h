@@ -25,6 +25,7 @@ public:
 
     Oggetto* searchOggetto(const std::string& nome);
     void searchPrint(const std::string& categoria);
+    int countOggettiDaAcquistare() const;
 
 
 
