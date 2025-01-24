@@ -66,7 +66,7 @@ TEST(ListaSpesaTest, PrintLista){
     EXPECT_NE(output.find("[Acquistato]: No"), std::string::npos);
 }
 
-TEST(ListaSpesaTest, SearchOggetto) {
+TEST(ListaSpesaTest, SearchOggetto){
     ListaSpesa lista("Spesa settimanale");
 
     Oggetto o1("Latte", "Bevande", 3, 1);
@@ -89,7 +89,7 @@ TEST(ListaSpesaTest, SearchOggetto) {
     EXPECT_EQ(risultato, nullptr);
 }
 
-TEST(ListaSpesaTest, SearchPrint) {
+TEST(ListaSpesaTest, SearchPrint){
     ListaSpesa lista("Spesa settimanale");
 
     Oggetto o1("Latte", "Bevande", 3, 1);
@@ -117,5 +117,30 @@ TEST(ListaSpesaTest, SearchPrint) {
     EXPECT_EQ(output, "\n[ Oggetti nella categoria: Snacks ] \n");
 }
 
+TEST(ListaSpesaTest, CountOggettiDaAcquistare){
+    ListaSpesa lista("Spesa settimanale");
+
+    // Aggiungiamo alcuni oggetti alla lista
+    Oggetto o1("Latte", "Bevande", 3, 1);  // Già acquistato
+    Oggetto o2("Uova", "Alimentari", 2, 0); // Non acquistato
+    Oggetto o3("Pane", "Panificio", 1, 0);  // Non acquistato
+    Oggetto o4("Formaggio", "Latticini", 1, 1); // Già acquistato
+
+    lista.addOggetto(o1);
+    lista.addOggetto(o2);
+    lista.addOggetto(o3);
+    lista.addOggetto(o4);
+
+    // Eseguiamo il test per verificare il conteggio degli oggetti non acquistati
+    EXPECT_EQ(lista.countOggettiDaAcquistare(), 2);
+
+    // Rimuoviamo un oggetto non acquistato e verifichiamo il conteggio aggiornato
+    lista.removeOggetto(o3);
+    EXPECT_EQ(lista.countOggettiDaAcquistare(), 1);
+
+    // Rimuoviamo tutti gli oggetti non acquistati e verifichiamo che il conteggio sia zero
+    lista.removeOggetto(o2);
+    EXPECT_EQ(lista.countOggettiDaAcquistare(), 0);
+}
 
 

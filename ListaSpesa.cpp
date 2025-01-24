@@ -59,7 +59,6 @@ Oggetto* ListaSpesa::searchOggetto(const std::string& nome){
             return &oggetto;
         }
     }
-    std::cout << "L'oggetto cercato NON si trova nella lista" << std::endl;
     return nullptr;
 }
 
